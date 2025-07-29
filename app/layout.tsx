@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,28 +14,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kisaan Direct - Transform Your Farm Business | Farm-to-Table Commerce Platform",
-  description: "Connect directly with consumers, manage inventory, track orders, and boost your profits with our comprehensive farm-to-table platform. Trusted by 10,000+ farmers across India.",
-  keywords: "farm management, agriculture technology, farm-to-table, inventory management, order processing, payment processing, logistics management, farmer platform",
+  title: "Kisaan Direct - Farm-to-Table Commerce Platform",
+  description: "A comprehensive platform connecting farmers directly to consumers, streamlining the agricultural supply chain with modern technology.",
+  keywords: "agriculture, farm-to-table, farmers, direct selling, e-commerce, India, farming",
   authors: [{ name: "Kisaan Direct Team" }],
   openGraph: {
-    title: "Kisaan Direct - Transform Your Farm Business",
-    description: "Connect directly with consumers, manage inventory, track orders, and boost your profits with our comprehensive farm-to-table platform.",
+    title: "Kisaan Direct - Farm-to-Table Commerce Platform",
+    description: "Connect directly with farmers and get fresh produce delivered to your doorstep.",
     type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
