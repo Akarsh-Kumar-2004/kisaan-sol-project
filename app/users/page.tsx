@@ -4,6 +4,7 @@ import Link from "next/link";
 import { translations, Language } from "../translations";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Logo from "../components/Logo";
+import TextToSpeech from "../components/TextToSpeech";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Users() {
@@ -17,6 +18,7 @@ export default function Users() {
           <div className="flex items-center space-x-4">
             <Logo size="md" />
             <LanguageSwitcher />
+            <TextToSpeech />
           </div>
           <div className="hidden md:flex space-x-6">
             <Link href="/" className="text-gray-600 hover:text-[#2a9d8f] transition">
